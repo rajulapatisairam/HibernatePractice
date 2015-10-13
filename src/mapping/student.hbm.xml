@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.practice.hibernate.pojo.Student">
+<id name="studentId" type="java.lang.Integer">
+<generator class="native"/>
+</id>
+<property name="studentName" type="java.lang.String"/>
+<property name="studentClass" type="java.lang.String"/>
+<one-to-one name="address" class="com.practice.hibernate.pojo.Address" cascade="save-update"></one-to-one>
+</class>
+</hibernate-mapping>

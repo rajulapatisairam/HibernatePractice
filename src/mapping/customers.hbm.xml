@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.practice.hibernate.pojo.Customers" table="customers" >
+
+            <meta attribute="class-description">
+            This calss is mapping the Customer database.
+            </meta>
+    
+        <id name="customerNumber" type="java.lang.Integer">
+        <!-- Class native
+        
+           it's let the hibernate pick up either identity, sequence or helios algorithm.  -->
+            <generator class="native" />
+        </id>
+        <property name="customerName" type="java.lang.String"/>
+        <property name="contactLastName" type="string"/>
+        <property name="contactFirstName" type="string"/>
+        <property name="phone" type="string"/>
+        <property name="addressLine1" type="string"/>
+        <property name="addressLine2" type="string"/>
+        <property name="city" type="string"/>
+        <property name="state" type="string"/>
+        <property name="postalCode" type="string"/>
+        <property name="country" type="string"/>
+        <property name="salesRepEmployeeNumber" type="int"/>
+        <property name="creditLimit" type="double"/>
+    </class>
+</hibernate-mapping>

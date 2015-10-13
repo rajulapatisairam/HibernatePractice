@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.practice.hibernate.pojo.datatypes.IntClass" table="intPractice">
+	  <meta attribute="class-description">
+	   		Here we are practicing all scope of integer type.
+	  </meta>
+	   <id name="primaryKey" type="java.lang.Integer" column="primaryKey">
+	    	<generator class="native"></generator>
+	   </id>
+	   <property name="unSign" type="int"  column="unSign" />
+	   <property name="notEmpty" type="int"  column="notEmpty" />
+	   <property name="length1" type="int"  column="length1" />
+	   <property name="emptyAllow" type="int"  column="emptyAllow" />
+	   <property name="defaultValue" type="int"  column="defaultValue" />
+	
+	</class>
+
+</hibernate-mapping>
