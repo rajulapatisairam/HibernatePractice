@@ -30,5 +30,6 @@
    <mapping resource="mapping/address.hbm.xml"/>
    <mapping resource="mapping/composite/compostieKey.hbm.xml"/>
    <mapping resource="mapping/composite/unique.hbm.xml"/>
+   <mapping resource="mapping.mappings/onetoone.hbm.xml"/>
 </session-factory>
 </hibernate-configuration>

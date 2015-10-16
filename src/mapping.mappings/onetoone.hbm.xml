@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.practice.hibernate.pojo.mapping.onetoone.Table1">
+<id name="t1_primaryKey" type="java.lang.Integer">
+<generator class="native"/>
+</id>
+<property name="t1_field1" type="java.lang.String"/>
+<property name="t1_field2" type="java.lang.String"/>
+<one-to-one name="table2" cascade="all" class="com.practice.hibernate.pojo.mapping.onetoone.Table2"/>
+</class>
+<class name="com.practice.hibernate.pojo.mapping.onetoone.Table2">
+<id name="t2_primaryKey" type="java.lang.Integer">
+<generator class="native"/>
+</id>
+<property name="t2_field1" type="java.lang.String"/>
+<property name="t2_field2" type="java.lang.String"/>
+<one-to-one name="table1" cascade="all" class="com.practice.hibernate.pojo.mapping.onetoone.Table1"/>
+</class>
+</hibernate-mapping>
