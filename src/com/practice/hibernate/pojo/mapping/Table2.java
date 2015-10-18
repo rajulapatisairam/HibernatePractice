@@ -1,4 +1,4 @@
-package com.practice.hibernate.pojo.mapping.onetoone;
+package com.practice.hibernate.pojo.mapping;
 
 public class Table2 {
 

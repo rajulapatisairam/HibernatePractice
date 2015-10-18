@@ -4,8 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.practice.hibernate.configuration.SessionUtils;
-import com.practice.hibernate.pojo.mapping.onetoone.Table1;
-import com.practice.hibernate.pojo.mapping.onetoone.Table2;
+import com.practice.hibernate.pojo.mapping.Table1;
+import com.practice.hibernate.pojo.mapping.Table2;
 
 public class OneToOneTesting {
 

@@ -31,5 +31,12 @@
    <mapping resource="mapping/composite/compostieKey.hbm.xml"/>
    <mapping resource="mapping/composite/unique.hbm.xml"/>
    <mapping resource="mapping.mappings/onetoone.hbm.xml"/>
+   <!--  One to One -->
+   <mapping resource="mapping.mappings/onetomany.hbm.xml"/>
+   
+   <!--  Many TO One  -->
+   <mapping class="com.practice.hibernate.pojo.mapping.Many2One1" />
+   <mapping class="com.practice.hibernate.pojo.mapping.ManyToOne2" />
+   
 </session-factory>
 </hibernate-configuration>

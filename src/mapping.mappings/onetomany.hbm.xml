@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+<class name="com.practice.hibernate.pojo.mapping.OneToMany1">
+<id name="primaryKey">
+<generator class="native"/>
+</id>
+<property name="column1"/>
+<property name="column2"/>
+</class>
+
+<class name="com.practice.hibernate.pojo.mapping.OneToMany2">
+<id name="primaryKey">
+<generator class="native"/>
+</id>
+<property name="column1"/>
+<property name="column2"/>
+</class>
+
+
+</hibernate-mapping>
