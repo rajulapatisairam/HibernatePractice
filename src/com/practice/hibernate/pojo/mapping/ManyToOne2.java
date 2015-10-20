@@ -18,7 +18,7 @@ public class ManyToOne2 {
 	private String column1;
 	private String column2;
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="primaryKey1",nullable=true)
+	@JoinColumn(name="primaryKey1",nullable=false)
 	private Many2One1 many2One1;
 	public int getPrimaryKey() {
 		return primaryKey;
