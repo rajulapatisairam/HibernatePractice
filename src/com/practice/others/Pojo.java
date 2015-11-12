@@ -1,5 +1,8 @@
 package com.practice.others;
 
+/**
+ * @author Sairam Rajulapati
+ */
 public class Pojo {
 	private int primaryKey;
 	@MyAnnotation(columName="1st Column")
