@@ -147,7 +147,7 @@ public class CriteriaTesting {
 				List<Customers> customers = criteria.list();
 				
 				for(Customers customer : customers){
-					System.out.println(" name is ; "+customer.getCustomerName());
+					System.out.println(" name is : "+customer.getCustomerName());
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
