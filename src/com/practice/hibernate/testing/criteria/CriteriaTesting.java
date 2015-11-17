@@ -6,6 +6,8 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Example;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -24,7 +26,75 @@ public class CriteriaTesting {
 	private void operations() {
 		//restrictions();
 		//projectionExample();
-		aggrigrateFunctions();
+		//aggrigrateFunctions();
+		//orderByExample();
+		//orderAndGroupExample();
+		queryByExample();
+	}
+
+	private void queryByExample() {
+			Transaction transaction;
+			try (SessionUtils utils = new SessionUtils()) {
+				Session session = utils.getSession();
+				Customers customerr = new Customers();
+				customerr.setCountry("Australia");
+				customerr.setCustomerName("A%");
+				Example example = Example.create(customerr);
+				Criteria criteria = session.createCriteria(Customers.class);
+				criteria.add(example);
+				example.enableLike();
+				example.excludeProperty("city");
+				List<Customers> customers = criteria.list();
+				for(Customers customer : customers){
+					System.out.println(" Name :"+customer.getCustomerName()+" "
+							+ "	country is : "+customer.getCountry()+"  City : "+customer.getCity());
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				System.out.println("Query By Examole s Operation is COmpleted!...");
+			}
+	}
+
+	private void orderAndGroupExample() {
+			
+			Transaction transaction;
+			try (SessionUtils utils = new SessionUtils()) {
+				Session session = utils.getSession();
+					Criteria criteria = session.createCriteria(Customers.class);
+					criteria.addOrder(Order.desc("creditLimit"));
+					criteria.setProjection(Projections.groupProperty("country"));
+					List<Object> list = criteria.list();
+					for(Object object : list){
+						System.out.println("\n Country is : "+object);
+					}
+					/*List<Customers> customers = criteria.list();
+					for(Customers customer : customers){
+						System.out.println(" name is ; "+customer.getCustomerName()+" country is : "+customer.getCountry()+" Credit Limit is: "+customer.getCreditLimit());
+					}*/
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				System.out.println("Order by grouping    Operation is COmpleted!...");
+			}
+	}
+
+	private void orderByExample() {
+		
+		Transaction transaction ;
+		try (SessionUtils utils = new SessionUtils()) {
+			Session session = utils.getSession();
+			Criteria criteria = session.createCriteria(Customers.class);
+			criteria.addOrder(Order.desc("creditLimit"));
+			List<Customers> customers = criteria.list();
+			for( Customers customer : customers){
+			System.out.println("\n Name is: "+customer.getCustomerName()+" Credit Limit is: "+customer.getCreditLimit());	
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			System.out.println("Order by example   Operation is COmpleted!...");
+		}
 	}
 
 	private void aggrigrateFunctions() {
@@ -32,7 +102,12 @@ public class CriteriaTesting {
 		Transaction transaction;
 		try (SessionUtils utils = new SessionUtils()) {
 			Session session = utils.getSession();
-			
+			// Row Count 
+			Criteria criteria = session.createCriteria(Customers.class);
+			 criteria.setProjection(Projections.rowCount());
+			 System.out.println("\n Row Count is "+criteria.uniqueResult());
+			 criteria.setProjection(Projections.sum("creditLimit"));
+			 System.out.println("\n Cridit Limit Sums is : "+criteria.uniqueResult());
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
