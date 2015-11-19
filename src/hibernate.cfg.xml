@@ -22,7 +22,7 @@
    </property>
    <!--  Show the sql quirees on console while those executing. -->
    <property name="show_sql">true</property>
-   <!--  -->
+   
    <!-- <property name="hbm2ddl.auto">update</property> -->
    <mapping resource="mapping/customers.hbm.xml"/>
    <mapping resource="mapping/datatypes/IntegerMapping.hbm.xml"/>
@@ -41,7 +41,13 @@
    <!--  One To Many -->
    <mapping class="com.practice.hibernate.pojo.mapping.onetomany.Students"/>
    <mapping class="com.practice.hibernate.pojo.mapping.onetomany.StudentGames"/>
-   
+   <!--  Associations -->
+   	   <!--  One TO Many Exmaple  -->
+   	   <mapping class="com.practice.hibernate.pojo.associations.Customer" />
+   	   <mapping class="com.practice.hibernate.pojo.associations.Vendor" />
+   	   <!--  One to One Example  -->
+   	  <mapping class="com.practice.hibernate.pojo.associations.Employee"/>
+   	  <mapping class="com.practice.hibernate.pojo.associations.EmployeeProject"/>
    	   
 </session-factory>
 </hibernate-configuration>
